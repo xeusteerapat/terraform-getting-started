@@ -3,6 +3,17 @@ resource "aws_s3_bucket" "web_bucket" {
   bucket        = local.s3_bucket_name
   force_destroy = true
 
+}
+
+## aws_s3_bucket_acl
+resource "aws_s3_bucket_acl" "web_bucket" {
+  bucket = aws_s3_bucket.web_bucket.id
+  acl    = "private"
+}
+
+## aws_s3_bucket_policy
+resource "aws_s3_bucket_policy" "web_bucket" {
+  bucket = aws_s3_bucket.web_bucket.id
   policy = <<POLICY
   {
     "Version": "2012-10-17",
@@ -39,12 +50,6 @@ resource "aws_s3_bucket" "web_bucket" {
     ]
   }
   POLICY
-  tags   = local.common_tags
-}
-
-resource "aws_s3_bucket_acl" "web_bucket" {
-  bucket = aws_s3_bucket.web_bucket.id
-  acl    = "private"
 }
 
 ## aws_s3_bucket_object
