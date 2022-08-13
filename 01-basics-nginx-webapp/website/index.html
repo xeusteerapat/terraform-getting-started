@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/axist@latest/dist/axist.min.css" />
+  <title>Terraform S3 Bucket</title>
+</head>
+
+<body>
+  <main role="main">
+    <h1>Hi, There</h1>
+    <p>Welcome to Terraform with AWS</p>
+    <pre>
+          resource "aws_lb" "nginx" {
+          name = "super-cool-web"
+          internal = false
+          load_balancer_type = "application"
+          security_groups = [aws_security_group.alb_sg.id]
+          subnets = [aws_subnet.subnet1.id, aws_subnet.subnet2.id]
+          
+          enable_deletion_protection = true
+          
+          tags = local.common_tags
+          }
+      </pre>
+
+    <section id="forms">
+      <h2>Basic Form</h2>
+      <form>
+        <fieldset>
+          <p>
+            <label for="input__text">Text Input</label>
+            <input id="input__text" class="w-100" type="text" placeholder="Text Input">
+          </p>
+          <p>
+            <label for="select">Select</label>
+            <select id="select" class="w-100">
+              <optgroup label="Option Group">
+                <option>Option One</option>
+                <option>Option Two</option>
+                <option>Option Three</option>
+              </optgroup>
+            </select>
+          </p>
+          <p>
+            <label for="textarea">Textarea</label>
+            <textarea id="textarea" rows="8" placeholder="Enter your message here" class="w-100"></textarea>
+          </p>
+          <ul>
+            <li>
+              <label for="checkbox1"><input id="checkbox1" name="checkbox" type="checkbox" checked="checked">
+                Checkbox</label>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <label for="radio1"><input id="radio1" name="radio" type="radio" class="radio" checked="checked">
+                Radio</label>
+            </li>
+            <li>
+              <label for="radio2"><input id="radio2" name="radio" type="radio" class="radio">
+                Button</label>
+            </li>
+          </ul>
+          <p>
+            <input type="submit" value="Submit">
+            <button disabled="">Disabled</button>
+          </p>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
