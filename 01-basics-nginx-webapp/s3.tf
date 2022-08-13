@@ -1,7 +1,6 @@
 ## aws_s3_bucket
 resource "aws_s3_bucket" "web_bucket" {
   bucket        = local.s3_bucket_name
-  acl           = "private"
   force_destroy = true
 
   policy = <<POLICY
@@ -41,6 +40,11 @@ resource "aws_s3_bucket" "web_bucket" {
   }
   POLICY
   tags   = local.common_tags
+}
+
+resource "aws_s3_bucket_acl" "web_bucket" {
+  bucket = aws_s3_bucket.web_bucket.id
+  acl    = "private"
 }
 
 ## aws_s3_bucket_object
@@ -97,8 +101,6 @@ resource "aws_iam_role_policy" "allow_s3_all" {
     ]
   }
   EOF
-
-  tags = local.common_tags
 }
 
 ## aws_iam_instance_profile
